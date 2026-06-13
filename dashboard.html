@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexura | Brand Dashboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        secondary: '#FF8E53',
+                        accent: '#FFD93D',
+                        dark: '#1a1a2e',
+                        midnight: '#16213e',
+                        deep: '#0f3460',
+                        light: '#fef9f0'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.5s ease-out'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 5px rgba(255,107,107,0.3)' },
+                            '50%': { boxShadow: '0 0 20px rgba(255,107,107,0.6)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFD93D;
+        }
+        /* Smooth transitions */
+        * {
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-dark via-midnight to-deep font-sans">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-dark/90 backdrop-blur-md sticky top-0 z-50 border-b border-primary/20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center animate-float">
+                        <i class="fas fa-cloud-sun text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-display font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                        Nexura
+                    </span>
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-light/80 hover:text-primary transition-colors duration-300 font-medium">Home</a>
+                    <a href="#" class="text-light/80 hover:text-primary transition-colors duration-300 font-medium">Products</a>
+                    <a href="#" class="text-light/80 hover:text-primary transition-colors duration-300 font-medium">Services</a>
+                    <a href="#" class="text-light/80 hover:text-primary transition-colors duration-300 font-medium">About</a>
+                    <a href="#" class="text-light/80 hover:text-primary transition-colors duration-300 font-medium">Contact</a>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <button class="bg-gradient-to-r from-primary to-secondary px-6 py-2 rounded-full font-semibold text-dark hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl">
+                        <i class="fas fa-rocket mr-2"></i>Get Started
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-light text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4 space-y-3">
+                <a href="#" class="block text-light/80 hover:text-primary py-2 font-medium">Home</a>
+                <a href="#" class="block text-light/80 hover:text-primary py-2 font-medium">Products</a>
+                <a href="#" class="block text-light/80 hover:text-primary py-2 font-medium">Services</a>
+                <a href="#" class="block text-light/80 hover:text-primary py-2 font-medium">About</a>
+                <a href="#" class="block text-light/80 hover:text-primary py-2 font-medium">Contact</a>
+                <button class="bg-gradient-to-r from-primary to-secondary w-full py-2 rounded-full font-semibold text-dark mt-2">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div class="grid md:grid-cols-2 gap-12 items-center animate-slide-up">
+            <div>
+                <div class="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-6 border border-primary/30">
+                    <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                    <span class="text-primary text-sm font-semibold">Welcome to Nexura</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-display font-bold text-light mb-6">
+                    Build Amazing<br>
+                    <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Digital Experiences</span>
+                </h1>
+                <p class="text-light/60 text-lg mb-8 leading-relaxed">
+                    Create stunning, responsive websites with our modern design system. 
+                    Tailored components, beautiful gradients, and seamless animations.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-gradient-to-r from-primary to-secondary px-8 py-3 rounded-full font-semibold text-dark hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl">
+                        <i class="fas fa-download mr-2"></i>Start Free Trial
+                    </button>
+                    <button class="border-2 border-primary/50 text-light px-8 py-3 rounded-full font-semibold hover:bg-primary/10 hover:border-primary transition-all duration-300">
+                        <i class="fas fa-play mr-2"></i>Watch Demo
+                    </button>
+                </div>
+                <div class="flex gap-8 mt-12">
+                    <div>
+                        <div class="text-3xl font-bold text-light">10K+</div>
+                        <div class="text-light/50 text-sm">Happy Clients</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-light">500+</div>
+                        <div class="text-light/50 text-sm">Projects</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-light">99%</div>
+                        <div class="text-light/50 text-sm">Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl"></div>
+                <div class="relative bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20 backdrop-blur-sm">
+                    <i class="fas fa-chart-line text-primary text-6xl mb-4"></i>
+                    <h3 class="text-2xl font-bold text-light mb-2">Analytics Dashboard</h3>
+                    <p class="text-light/60">Real-time insights for your business growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-light/5 py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-primary font-semibold uppercase tracking-wider">Why Choose Us</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-light mt-2 mb-4">
+                    Powerful Features for<br>Modern Businesses
+                </h2>
+                <p class="text-light/60 max-w-2xl mx-auto">Everything you need to build amazing digital products</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="bg-dark/50 backdrop-blur-sm rounded-2xl p-6 border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-dark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light mb-2">Lightning Fast</h3>
+                    <p class="text-light/60">Optimized performance with blazing fast load times and smooth interactions.</p>
+                </div>
+                
+                <!-- Feature Card 2 -->
+                <div class="bg-dark/50 backdrop-blur-sm rounded-2xl p-6 border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-gradient-to-br from-secondary to-accent rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-dark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light mb-2">Fully Responsive</h3>
+                    <p class="text-light/60">Perfect design that adapts seamlessly to any device or screen size.</p>
+                </div>
+                
+                <!-- Feature Card 3 -->
+                <div class="bg-dark/50 backdrop-blur-sm rounded-2xl p-6 border border-primary/20 hover:border-primary/50 transition-all duration-300 hover:transform hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-palette text-dark text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-light mb-2">Customizable</h3>
+                    <p class="text-light/60">Tailwind-based components that you can easily customize to your brand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center mb-12">
+            <span class="text-primary font-semibold uppercase tracking-wider">Pricing</span>
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-light mt-2 mb-4">
+                Simple, Transparent Pricing
+            </h2>
+            <p class="text-light/60 max-w-2xl mx-auto">Choose the plan that works best for you</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <!-- Basic Plan -->
+            <div class="bg-dark/50 backdrop-blur-sm rounded-2xl p-8 border border-primary/20 hover:border-primary/50 transition-all duration-300 text-center">
+                <h3 class="text-2xl font-bold text-light mb-2">Basic</h3>
+                <div class="text-4xl font-bold text-light mb-4">
+                    $29<span class="text-lg text-light/50">/mo</span>
+                </div>
+                <ul class="space-y-3 mb-8 text-left">
+                    <li class="text-light/70"><i class="fas fa-check text-primary mr-2"></i> 5 Projects</li>
+                    <li class="text-light/70"><i class="fas fa-check text-primary mr-2"></i> Basic Support</li>
+                    <li class="text-light/70"><i class="fas fa-check text-primary mr-2"></i> 10GB Storage</li>
+                    <li class="text-light/40"><i class="fas fa-times mr-2"></i> Advanced Analytics</li>
+                </ul>
+                <button class="w-full border-2 border-primary/50 text-light py-3 rounded-full font-semibold hover:bg-primary/10 transition-all">
+                    Get Started
+                </button>
+            </div>
+            
+            <!-- Pro Plan (Featured) -->
+            <div class="bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-primary shadow-xl transform scale-105 relative">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-secondary px-4 py-1 rounded-full text-dark text-sm font-semibold">
+                    Most Popular
+                </div>
+                <h3 class="text-2xl font-bold text-light mb-2 text-center">Pro</h3>
+                <div class="text-4xl font-bold text-light mb-4 text-center">
+                    $79<span class="text-lg text-light/50">/mo</span>
+                </div>
+                <ul class="space-y-3 mb-8 text-left">
+                    <li class="text-light/80"><i class="fas fa-check text-primary mr-2"></i> Unlimited Projects</li>
+                    <li class="text-light/80"><i class="fas fa-check text-primary mr-2"></i> Priority Support</li>
+                    <li class="text-light/80"><i class="fas fa-check text-primary mr-2"></i> 100GB Storage</li>
+                    <li class="text-light/80"><i class="fas fa-check text-primary mr-2"></i> Advanced Analytics</li>
+                </ul>
+                <button class="w-full bg-gradient-to-r from-primary to-secondary text-dark py-3 rounded-full font-semibold hover:scale-105 transition-transform">
+                    Get Started
+                </button>
+            </div>
+            
+            <!-- Enterprise Plan -->
+            <div class="bg-dark/50 backdrop-blur-sm rounded-2xl p-8 border border-primary/20 hover:border-primary/50 transition-all duration-300 text-center">
+                <h3 class="text-2xl font-bold text-light mb-2">Enterprise</h3>
+                <div class="text-4xl font-bold text-light mb-4">
+                    $149<span class="text-lg text-light/50">/mo</span>
+                </div>
+                <ul class="space-y-3 mb-8 text-left">
+                    <li class="text-light/70"><i class="fas fa-check text-primary mr-2"></i> Unlimited Everything</li>
+                    <li class="text-light/70"><i class="fas fa-check text-primary mr-2"></i> 24/7 Dedicated Support</li>
+                    <li class="text-light/70"><i class="fas fa-check text-primary mr-2"></i> 1TB Storage</li>
+                    <li class="text-light/70"><i class="fas fa-check text-primary mr-2"></i> Custom Solutions</li>
+                </ul>
+                <button class="w-full border-2 border-primary/50 text-light py-3 rounded-full font-semibold hover:bg-primary/10 transition-all">
+                    Contact Us
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-light/5 py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-primary font-semibold uppercase tracking-wider">Testimonials</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-light mt-2 mb-4">
+                    What Our Clients Say
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-dark/30 rounded-2xl p-6 border border-primary/10">
+                    <i class="fas fa-quote-left text-primary text-3xl mb-4"></i>
+                    <p class="text-light/70 mb-4">"Amazing platform! The design system is incredibly intuitive and the support team is fantastic."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-dark"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-light font-semibold">John Doe</h4>
+                            <p class="text-light/50 text-sm">CEO, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark/30 rounded-2xl p-6 border border-primary/10">
+                    <i class="fas fa-quote-left text-primary text-3xl mb-4"></i>
+                    <p class="text-light/70 mb-4">"The Tailwind customization saved us weeks of development time. Highly recommended!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-dark"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-light font-semibold">Jane Smith</h4>
+                            <p class="text-light/50 text-sm">Product Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-dark/30 rounded-2xl p-6 border border-primary/10">
+                    <i class="fas fa-quote-left text-primary text-3xl mb-4"></i>
+                    <p class="text-light/70 mb-4">"Beautiful designs, great performance, and excellent documentation. A game-changer!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-dark"></i>
+                        </div>
+                        <br><br>
+                        <div>
+                            <h4 class="text-light font-semibold">Mike Johnson</h4>
+                            <p class="text-light/50 text-sm">Freelancer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark/80 py-12 border-t border-primary/20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-cloud-sun text-dark text-sm"></i>
+                        </div>
+                        <span class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Nexura</span>
+                    </div>
+                    <p class="text-light/50 text-sm">Building amazing digital experiences with modern design systems.</p>
+                </div>
+                <div>
+                    <h4 class="text-light font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-light/50 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">API</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Documentation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-light font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-light/50 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-light font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-light/50 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Security</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-primary/20 mt-8 pt-8 text-center text-light/40 text-sm">
+                <p>&copy; 2026 Nexura. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
