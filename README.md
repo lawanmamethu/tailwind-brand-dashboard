@@ -71,7 +71,7 @@ Methuli Lawanma
 
 ## 📄 License 
 
-This project is for educational and portfolio purposes as part of the Front-End Internship at Codveda Technologies – Level 2 Task 3: CSS Frameworks.
+This project is for educational and portfolio purposes as part of the Front-End Internship.
 
 ---
 
